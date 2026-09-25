@@ -17,6 +17,17 @@ export interface WindowScene {
   treeDensity: TreeDensity
   pedestrianStatus: PedestrianStatus
   note: string
+  versions?: SceneVersion[]
+}
+
+export type SceneEditData = Pick<
+  WindowScene,
+  'weather' | 'signText' | 'treeDensity' | 'pedestrianStatus' | 'note'
+>
+
+export interface SceneVersion extends SceneEditData {
+  id: string
+  savedAt: string
 }
 
 export interface SceneFormData {

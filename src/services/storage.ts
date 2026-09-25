@@ -18,6 +18,11 @@ export function saveScene(scene: WindowScene): void {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(scenes))
 }
 
+export function updateScene(updated: WindowScene): void {
+  const scenes = getAllScenes().map((s) => (s.id === updated.id ? updated : s))
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(scenes))
+}
+
 export function deleteScene(id: string): void {
   const scenes = getAllScenes().filter((s) => s.id !== id)
   localStorage.setItem(STORAGE_KEY, JSON.stringify(scenes))
